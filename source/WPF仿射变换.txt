@@ -1,0 +1,32 @@
+平移
+1	0	0
+0	1	0
+tx	ty	1
+
+缩放
+sx	0	0
+0	sy	0
+0	0	1
+
+剪切
+1	shy	0
+shx	1	0
+0	0	1
+
+旋转
+cos(α)	sin(α)	0
+-sin(α)	cos(α)	0
+0		0		1
+
+以(x, y)为轴心顺时针旋转
+cos(α)					sin(α)					0
+-sin(α)					cos(α)					0
+x-x*cos(α)+y*sin(α)		y-x*sin(α)-y*cos(α)		1
+
+
+
+
+
+参考：
+http://blog.csdn.net/jungleford/archive/2005/11/29/539302.aspx
+http://download.oracle.com/javase/1.5.0/docs/api/java/awt/geom/AffineTransform.html#getTranslateInstance(double, double)

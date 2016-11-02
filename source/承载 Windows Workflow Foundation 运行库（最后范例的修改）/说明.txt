@@ -1,0 +1,22 @@
+承载 Windows Workflow Foundation 运行库（最后范例的修改）
+
+[修改]
+
+1. 修改 App.config 文件，加入SharedConnectionWorkflowCommitWorkBatchService服务。
+   优化持久和跟踪共同使用一个数据库的连接，甚至不需要开启 MSDTC 服务支持。
+2. 从配置文件的工作流节(WorkflowRuntimeSection)中得到数据库连接字串。
+3. 在工作流卸载到数据库中时，输出当前工作流在InstanceState表中的state列数据。
+   得到文件：桌面\data__$001.bin
+
+[准备]
+
+1. 运行“创建数据库.cmd”创建所需的数据库。
+2. 服务支持
+	Microsoft 分布式事务中心 (MSDTC)
+	防火墙例外：C:\Windows\system32\msdtc.exe
+	防火墙例外端口：TCP 135
+	net start msdtc
+
+	SQLServer
+	防火墙例外：C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Binn\sqlservr.exe
+

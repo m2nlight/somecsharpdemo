@@ -1,0 +1,33 @@
+<Page
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Canvas>  
+  <Path Fill="LightGreen" Stroke="Green" StrokeThickness="3">
+    <Path.Data>
+    <GeometryGroup>
+      <CombinedGeometry GeometryCombineMode="Union">
+        <CombinedGeometry.Geometry1><EllipseGeometry Center="120 120" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry1>
+        <CombinedGeometry.Geometry2><EllipseGeometry Center="220 120" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry2>
+      </CombinedGeometry>
+      <CombinedGeometry GeometryCombineMode="Intersect">
+        <CombinedGeometry.Geometry1><EllipseGeometry Center="440 120" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry1>
+        <CombinedGeometry.Geometry2><EllipseGeometry Center="540 120" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry2>
+      </CombinedGeometry>
+      <CombinedGeometry GeometryCombineMode="Xor">
+        <CombinedGeometry.Geometry1><EllipseGeometry Center="120 340" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry1>
+        <CombinedGeometry.Geometry2><EllipseGeometry Center="220 340" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry2>
+      </CombinedGeometry>
+      <CombinedGeometry GeometryCombineMode="Exclude">
+        <CombinedGeometry.Geometry1><EllipseGeometry Center="440 340" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry1>
+        <CombinedGeometry.Geometry2><EllipseGeometry Center="540 340" RadiusX="100" RadiusY="100"/></CombinedGeometry.Geometry2>
+      </CombinedGeometry>
+      </GeometryGroup>
+    </Path.Data>
+  </Path>
+  <TextBlock Canvas.Left="150" Canvas.Top="120" Text="Union" />
+  <TextBlock Canvas.Left="465" Canvas.Top="120" Text="Intersect" />
+  <TextBlock Canvas.Left="80" Canvas.Top="335" Text="Xor" />
+  <TextBlock Canvas.Left="240" Canvas.Top="335" Text="Xor" />
+  <TextBlock Canvas.Left="385" Canvas.Top="335" Text="Exclude" />
+  </Canvas>
+</Page>

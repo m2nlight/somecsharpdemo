@@ -1,0 +1,18 @@
+﻿<Window x:Class="SpecialJpeg.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" Title="SpecialJpeg - L:WPF-Image vs. R:Winform-PictureBox" SizeToContent="WidthAndHeight">
+    <Grid Name="LayoutRoot">
+        <Border Margin="12,12,236,19" Width="200" Height="200" BorderThickness="1" BorderBrush="Red" Background="LavenderBlush" AllowDrop="True" Drop="Image1Drop" DragEnter="Image1DragEnter">
+            <Image HorizontalAlignment="Stretch" Name="image1" Stretch="Uniform" VerticalAlignment="Stretch" />
+        </Border>
+
+        <Border Margin="226,14,22,18" Width="200" Height="200" BorderThickness="1" BorderBrush="Green" Background="AliceBlue" AllowDrop="True" Drop="Image2Drop" DragEnter="Image1DragEnter">
+            <WindowsFormsHost>
+                <Forms:PictureBox x:Name="pictureBox1" SizeMode="Zoom" />
+            </WindowsFormsHost>
+        </Border>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="0,0,0,0" Name="textBox1" Visibility="Hidden" VerticalAlignment="Bottom" IsReadOnly="True" Foreground="Red" Background="Yellow" BorderBrush="Orange" />
+
+    </Grid>
+</Window>

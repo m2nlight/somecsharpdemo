@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<contactbook>
+  <contact>
+    <name>Oyi319</name>
+    <phone>86-411-88888888</phone>
+    <email>oyi319@email.com</email>
+    <remark>备注，测试复制汉字。</remark>
+  </contact>
+  <contact>
+    <name>Jude</name>
+    <phone>86-411-88888889</phone>
+    <email>jude@email.com</email>
+    <remark>裘德</remark>
+  </contact>
+  <contact>
+    <name>Alice</name>
+    <phone>86-411-88888890</phone>
+    <email>alice@email.com</email>
+    <remark>艾丽斯</remark>
+  </contact>
+  <contact>
+    <name>Tom</name>
+    <phone>86-411-88888891</phone>
+    <email>tom@email.com</email>
+    <remark>汤姆</remark>
+  </contact>
+  <contact>
+    <name>Jerry</name>
+    <phone>86-411-99999991</phone>
+    <email>jerry@email.com</email>
+    <remark>杰瑞</remark>
+  </contact>
+</contactbook>

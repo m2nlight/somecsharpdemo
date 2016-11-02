@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<style type="text/css">
+div {
+	margin: 10px;
+}
+p {
+	font-size: small;
+}
+</style>
+<script language="javascript" type="text/javascript">
+		<!-- 提供给C#程序调用的方法 -->
+		function messageBox(message)
+		{
+			alert(message);
+		}
+	</script>
+</head>
+
+<body>
+
+<div>
+	<!-- 调用C#方法 -->
+	<button onclick="window.external.MyMessageBox('javascript访问C#代码')">javascript访问C#代码
+	</button></div>
+<div>
+	<p>原作者：永不言败<br /><a href="http://www.cnblogs.com/xds/archive/2007/03/02/661838.html" target="_blank">转到《JavaScript与C# 
+	Windows应用程序交互》</a></p><p>日志收藏：Oyi319<br /><a href="http://blog.csdn.net/oyi319/archive/2010/07/08/5721482.aspx" target="_blank">转到 Oyi319的博客</a></p></div>
+
+</body>
+
+</html>

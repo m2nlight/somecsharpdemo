@@ -1,0 +1,113 @@
+<Page
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Canvas>
+    <!--旋转-30度-->
+    <Rectangle Canvas.Left="320" Canvas.Top="120" Width="180" Height="180" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="320" Canvas.Top="120" Width="180" Height="180" Fill="Orange" Opacity="0.65">
+      <Rectangle.RenderTransform>
+        <!--旋转-30度-->
+        <MatrixTransform Matrix="0.866,-0.5,0.5,0.866,0,0" />
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="320" Canvas.Top="300" Text="测试（旋转-30度）"/>
+    <!--WPF的矩阵结构-->
+    <TextBlock Canvas.Left="620" Canvas.Top="100" Text="WPF的矩阵结构："/>
+    <TextBlock Canvas.Left="625" Canvas.Top="130" Text="M11      M12      0" FontFamily="Courier New"/>
+    <TextBlock Canvas.Left="625" Canvas.Top="160" Text="M21      M22      0" FontFamily="Courier New"/>
+    <TextBlock Canvas.Left="625" Canvas.Top="190" Text="OffsetX  OffsetY  1" FontFamily="Courier New"/>
+    <Path Data="M 620 130 L 620 200 Z M 770 130 L 770 200 Z" Stroke="Black" StrokeThickness="1" />
+    
+    <!--旋转α度-->
+    <TextBlock Canvas.Left="620" Canvas.Top="240" Text="旋转α度："/>
+    <TextBlock Canvas.Left="625" Canvas.Top="270" Text="cos(α)   sin(α)   0" FontFamily="Courier New"/>
+    <TextBlock Canvas.Left="625" Canvas.Top="300" Text="-sin(α)  cos(α)   0" FontFamily="Courier New"/>
+    <TextBlock Canvas.Left="625" Canvas.Top="330" Text="OffsetX  OffsetY  1" FontFamily="Courier New"/>
+    <Path Data="M 620 270 L 620 340 Z M 770 270 L 770 340 Z" Stroke="Black" StrokeThickness="1" />
+    <!--无变换-->
+    <Rectangle Canvas.Left="20" Canvas.Top="20" Width="60" Height="60" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="20" Canvas.Top="20" Width="60" Height="60" Fill="Orange" Opacity="0.65" >
+      <Rectangle.RenderTransform>
+        <MatrixTransform Matrix="1 0 0 1 0 0" />
+        <!--或者-->
+        <!--<MatrixTransform Matrix="0 1 1 0 0 0" />-->
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="20" Canvas.Top="80" Text="无变换(Width:60,Height:60)"/>
+    <TextBlock Canvas.Left="80" Canvas.Top="20" Text="M11=1 M12=0"/>
+    <TextBlock Canvas.Left="80" Canvas.Top="40" Text="M21=0 M22=1"/>
+    <TextBlock Canvas.Left="80" Canvas.Top="60" Text="OffsetX=0 OffsetY=0"/>
+    <!--M11-->
+    <Rectangle Canvas.Left="20" Canvas.Top="120" Width="60" Height="60" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="20" Canvas.Top="120" Width="60" Height="60" Fill="Orange" Opacity="0.65" >
+      <Rectangle.RenderTransform>
+        <MatrixTransform>
+          <MatrixTransform.Matrix>
+            <Matrix M11="0.5" M12="0" M21="0" M22="1" OffsetX="0" OffsetY="0" />
+          </MatrixTransform.Matrix>
+        </MatrixTransform>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="20" Canvas.Top="180" Text="M11=0.5"/>
+    <!--M12-->
+    <Rectangle Canvas.Left="120" Canvas.Top="120" Width="60" Height="60" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="120" Canvas.Top="120" Width="60" Height="60" Fill="Orange" Opacity="0.65" >
+      <Rectangle.RenderTransform>
+        <MatrixTransform>
+          <MatrixTransform.Matrix>
+            <Matrix M11="1" M12="0.5" M21="0" M22="1" OffsetX="0" OffsetY="0" />
+          </MatrixTransform.Matrix>
+        </MatrixTransform>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="120" Canvas.Top="180" Text="M12=0.5"/>
+    <!--M21-->
+    <Rectangle Canvas.Left="20" Canvas.Top="220" Width="60" Height="60" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="20" Canvas.Top="220" Width="60" Height="60" Fill="Orange" Opacity="0.65" >
+      <Rectangle.RenderTransform>
+        <MatrixTransform>
+          <MatrixTransform.Matrix>
+            <Matrix M11="1" M12="0" M21="0.5" M22="1" OffsetX="0" OffsetY="0" />
+          </MatrixTransform.Matrix>
+        </MatrixTransform>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="20" Canvas.Top="280" Text="M21=0.5"/>
+    <!--M22-->
+    <Rectangle Canvas.Left="120" Canvas.Top="220" Width="60" Height="60" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="120" Canvas.Top="220" Width="60" Height="60" Fill="Orange" Opacity="0.65" >
+      <Rectangle.RenderTransform>
+        <MatrixTransform>
+          <MatrixTransform.Matrix>
+            <Matrix M11="1" M12="0" M21="0" M22="0.5" OffsetX="0" OffsetY="0" />
+          </MatrixTransform.Matrix>
+        </MatrixTransform>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="120" Canvas.Top="280" Text="M22=0.5"/>
+    <!--OffsetX-->
+    <Rectangle Canvas.Left="20" Canvas.Top="320" Width="60" Height="60" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="20" Canvas.Top="320" Width="60" Height="60" Fill="Orange" Opacity="0.65" >
+      <Rectangle.RenderTransform>
+        <MatrixTransform>
+          <MatrixTransform.Matrix>
+            <Matrix M11="1" M12="0" M21="0" M22="1" OffsetX="30" OffsetY="0" />
+          </MatrixTransform.Matrix>
+        </MatrixTransform>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="20" Canvas.Top="380" Text="OffsetX=30"/>
+    <!--OffsetY-->
+    <Rectangle Canvas.Left="120" Canvas.Top="320" Width="60" Height="60" Stroke="Orange" StrokeDashArray="3 1" StrokeThickness="2" />
+    <Rectangle Canvas.Left="120" Canvas.Top="320" Width="60" Height="60" Fill="Orange" Opacity="0.65" >
+      <Rectangle.RenderTransform>
+        <MatrixTransform>
+          <MatrixTransform.Matrix>
+            <Matrix M11="1" M12="0" M21="0" M22="1" OffsetX="0" OffsetY="30" />
+          </MatrixTransform.Matrix>
+        </MatrixTransform>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <TextBlock Canvas.Left="120" Canvas.Top="380" Text="OffsetY=30"/>
+  </Canvas>
+</Page>
