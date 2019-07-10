@@ -1,0 +1,11 @@
+/* common */
+body, ul, ol, li
+{
+    margin: 0;
+    list-style: none;
+}
+
+img
+{
+    border-width: 0;    
+}
