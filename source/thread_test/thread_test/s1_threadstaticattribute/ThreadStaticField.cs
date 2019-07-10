@@ -5,61 +5,61 @@ namespace thread_test.s1_threadstaticattribute
 {
     public class ThreadStaticField
     {
-        //ThreadStaticAttributeÊ¹¾²Ì¬×Ö¶ÎÔÚÃ¿¸öÏß³ÌÖĞÓĞÎ¨Ò»µÄÖµ
+        //ThreadStaticAttributeä½¿é™æ€å­—æ®µåœ¨æ¯ä¸ªçº¿ç¨‹ä¸­æœ‰å”¯ä¸€çš„å€¼
         [ThreadStatic] public static string Bar;
 
         /// <summary>
-        /// ÏÔÊ¾¾²Ì¬×Ö¶ÎÖµ
+        /// æ˜¾ç¤ºé™æ€å­—æ®µå€¼
         /// </summary>
-        /// <param name="initStaticFields">ÏÔÊ¾Ç°ÊÇ·ñ¶Ô×Ö¶Î½øĞĞ³õÊ¼»¯</param>
+        /// <param name="initStaticFields">æ˜¾ç¤ºå‰æ˜¯å¦å¯¹å­—æ®µè¿›è¡Œåˆå§‹åŒ–</param>
         public static void DisplayStaticFieldValue(object initStaticFields)
         {
-            //¶àÏß³ÌÒÔ´Ë·½·¨Æô¶¯£¬¶ÔThreadStaticAttributeĞŞÊÎµÄ¾²Ì¬×Ö¶ÎÔÚ´Ë½øĞĞ³õÊ¼»¯
+            //å¤šçº¿ç¨‹ä»¥æ­¤æ–¹æ³•å¯åŠ¨ï¼Œå¯¹ThreadStaticAttributeä¿®é¥°çš„é™æ€å­—æ®µåœ¨æ­¤è¿›è¡Œåˆå§‹åŒ–
             if ((bool) initStaticFields) InitStaticFields();
 
             string msg = string.Format("{0,4}{1,4}{2,4}\t{3}", Thread.CurrentThread.ManagedThreadId,
-                                       Thread.CurrentThread.IsThreadPoolThread ? "Ïß³Ì³Ø" : "ÆÕÍ¨", Thread.CurrentThread.Name,
+                                       Thread.CurrentThread.IsThreadPoolThread ? "çº¿ç¨‹æ± " : "æ™®é€š", Thread.CurrentThread.Name,
                                        Bar);
             Console.WriteLine(msg);
 
-            //ÎªÁË²âÊÔThreadStatic×Ö¶ÎÔÚÏß³Ì³ØµÄ¹¤×÷Çé¿ö¡£
-            //°ÑÏß³ÌÊÙÃüÑÓ³¤£¬Ê¹Ïß³Ì³ØÀ´²»¼°ÖØÓÃÍ¬Ò»¸ö£¨Ö¸ÍĞ¹ÜÏß³ÌIdºÅÏàÍ¬µÄ£©Ïß³Ì¡£
+            //ä¸ºäº†æµ‹è¯•ThreadStaticå­—æ®µåœ¨çº¿ç¨‹æ± çš„å·¥ä½œæƒ…å†µã€‚
+            //æŠŠçº¿ç¨‹å¯¿å‘½å»¶é•¿ï¼Œä½¿çº¿ç¨‹æ± æ¥ä¸åŠé‡ç”¨åŒä¸€ä¸ªï¼ˆæŒ‡æ‰˜ç®¡çº¿ç¨‹Idå·ç›¸åŒçš„ï¼‰çº¿ç¨‹ã€‚
             Thread.Sleep(100);
         }
 
         /// <summary>
-        /// ³õÊ¼»¯Ïß³Ì¾²Ì¬×Ö¶Î
+        /// åˆå§‹åŒ–çº¿ç¨‹é™æ€å­—æ®µ
         /// </summary>
         private static void InitStaticFields()
         {
-            Bar = "ÒÑ³õÊ¼"; //³õÊ¼»¯Bar¾²Ì¬×Ö¶Î
+            Bar = "å·²åˆå§‹"; //åˆå§‹åŒ–Baré™æ€å­—æ®µ
         }
 
         /// <summary>
-        /// ²âÊÔ´úÂë
+        /// æµ‹è¯•ä»£ç 
         /// </summary>
         public static void TestStaticField()
         {
-            DisplayStaticFieldValue(true); //ÔÚµ±Ç°Ïß³Ì£¨µÚÒ»´Î£©³õÊ¼»¯Bar¾²Ì¬×Ö¶Î£¬ÏÔÊ¾ÆäÖµ
+            DisplayStaticFieldValue(true); //åœ¨å½“å‰çº¿ç¨‹ï¼ˆç¬¬ä¸€æ¬¡ï¼‰åˆå§‹åŒ–Baré™æ€å­—æ®µï¼Œæ˜¾ç¤ºå…¶å€¼
 
             var t1 = new Thread(DisplayStaticFieldValue) {Name = "t1"};
-            t1.Start(true); //ÔÚt1Ïß³ÌÉÏ³õÊ¼»¯Bar£¬ÏÔÊ¾ÆäÖµ
+            t1.Start(true); //åœ¨t1çº¿ç¨‹ä¸Šåˆå§‹åŒ–Barï¼Œæ˜¾ç¤ºå…¶å€¼
 
             var t2 = new Thread(DisplayStaticFieldValue) {Name = "t2"};
-            t2.Start(false); //ÔÚt2Ïß³ÌÉÏÎ´³õÊ¼»¯Bar£¬ÏÔÊ¾ÆäÖµ
+            t2.Start(false); //åœ¨t2çº¿ç¨‹ä¸Šæœªåˆå§‹åŒ–Barï¼Œæ˜¾ç¤ºå…¶å€¼
 
-            //Ê¹ÓÃQueueUserWorkItem·½·¨¼ÓÈëÏß³Ì³Ø¶ÓÁĞ£¬ÄÇÃ´ÔÚÏß³Ì³ØÏß³ÌÉÏ£¬
-            //Èç¹ûÏß³ÌµÄIdºÅÏàÍ¬£¬»áÊ¹ÓÃÍ¬Ò»¸öThreadStatic×Ö¶Î
-            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, true); //³õÊ¼»¯
-            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //ÆÚÍûÊÇÎ´³õÊ¼»¯
-            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //ÆÚÍûÊÇÎ´³õÊ¼»¯
-            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //ÆÚÍûÊÇÎ´³õÊ¼»¯
-            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //ÆÚÍûÊÇÎ´³õÊ¼»¯
-            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //ÆÚÍûÊÇÎ´³õÊ¼»¯
-            //²é¿´½á¹û¿ÉÖª£ºÓĞµÄÏß³Ì³ØÏß³Ì¾²Ì¬×Ö¶Î²¢²»ÊÇÎÒÃÇµÄÆÚÍûÖµ£¬ÕæÊµÖµËÆºõÓëÏß³ÌIdºÅÓĞ¹ØÏµ
-            //ÀûÓÃThreadStaticÊôĞÔµÄ¾²Ì¬×Ö¶ÎÔÚÊ¹ÓÃÏß³Ì³ØÏß³ÌÊ±ĞèÒª×¢ÒâÕâÖÖÎÊÌâµÄ·¢Éú
+            //ä½¿ç”¨QueueUserWorkItemæ–¹æ³•åŠ å…¥çº¿ç¨‹æ± é˜Ÿåˆ—ï¼Œé‚£ä¹ˆåœ¨çº¿ç¨‹æ± çº¿ç¨‹ä¸Šï¼Œ
+            //å¦‚æœçº¿ç¨‹çš„Idå·ç›¸åŒï¼Œä¼šä½¿ç”¨åŒä¸€ä¸ªThreadStaticå­—æ®µ
+            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, true); //åˆå§‹åŒ–
+            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //æœŸæœ›æ˜¯æœªåˆå§‹åŒ–
+            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //æœŸæœ›æ˜¯æœªåˆå§‹åŒ–
+            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //æœŸæœ›æ˜¯æœªåˆå§‹åŒ–
+            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //æœŸæœ›æ˜¯æœªåˆå§‹åŒ–
+            ThreadPool.QueueUserWorkItem(DisplayStaticFieldValue, false); //æœŸæœ›æ˜¯æœªåˆå§‹åŒ–
+            //æŸ¥çœ‹ç»“æœå¯çŸ¥ï¼šæœ‰çš„çº¿ç¨‹æ± çº¿ç¨‹é™æ€å­—æ®µå¹¶ä¸æ˜¯æˆ‘ä»¬çš„æœŸæœ›å€¼ï¼ŒçœŸå®å€¼ä¼¼ä¹ä¸çº¿ç¨‹Idå·æœ‰å…³ç³»
+            //åˆ©ç”¨ThreadStaticå±æ€§çš„é™æ€å­—æ®µåœ¨ä½¿ç”¨çº¿ç¨‹æ± çº¿ç¨‹æ—¶éœ€è¦æ³¨æ„è¿™ç§é—®é¢˜çš„å‘ç”Ÿ
 
-            DisplayStaticFieldValue(false); //ÔÚµ±Ç°Ïß³ÌÉÏÏÔÊ¾Bar¾²Ì¬×Ö¶ÎµÄÖµ£¨Ç°ÃæÒÑ¾­³õÊ¼»¯¹ı£©
+            DisplayStaticFieldValue(false); //åœ¨å½“å‰çº¿ç¨‹ä¸Šæ˜¾ç¤ºBaré™æ€å­—æ®µçš„å€¼ï¼ˆå‰é¢å·²ç»åˆå§‹åŒ–è¿‡ï¼‰
         }
     }
 }

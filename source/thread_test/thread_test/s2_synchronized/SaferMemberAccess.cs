@@ -7,13 +7,13 @@ namespace thread_test.s2_synchronized
     public class SaferMemberAccess
     {
         /// <summary>
-        /// lock(Ë½ÓĞ¶ÔÏó) ·½Ê½±£ÕÏ¶Ô _numeric ²Ù×÷µÄÏß³Ì°²È«¡£
-        /// lock¹Ø¼ü×Ö²»ÒªÔÚ¹«¹²ÀàĞÍ»òÕß³ÌĞò¿ØÖÆÖ®ÍâµÄÊµÀıÉÏÊ¹ÓÃ£¬ÈİÒ×µ¼ÖÂËÀËø¡£
+        /// lock(ç§æœ‰å¯¹è±¡) æ–¹å¼ä¿éšœå¯¹ _numeric æ“ä½œçš„çº¿ç¨‹å®‰å…¨ã€‚
+        /// lockå…³é”®å­—ä¸è¦åœ¨å…¬å…±ç±»å‹æˆ–è€…ç¨‹åºæ§åˆ¶ä¹‹å¤–çš„å®ä¾‹ä¸Šä½¿ç”¨ï¼Œå®¹æ˜“å¯¼è‡´æ­»é”ã€‚
         /// </summary>
         public static class Method1Lock
         {
-            private static object syncObj = new object(); //ÓÃÒ»¸öË½ÓĞ¶ÔÏó×÷ÎªÍ¬²½Ëø¶ÔÏó
-            private static int _numeric = 1; //ĞèÒª°²È«·ÃÎÊµÄ¶ÔÏó
+            private static object syncObj = new object(); //ç”¨ä¸€ä¸ªç§æœ‰å¯¹è±¡ä½œä¸ºåŒæ­¥é”å¯¹è±¡
+            private static int _numeric = 1; //éœ€è¦å®‰å…¨è®¿é—®çš„å¯¹è±¡
 
             public static void IncrementNumeric()
             {
@@ -42,11 +42,11 @@ namespace thread_test.s2_synchronized
 
 
         /// <summary>
-        /// ÓÃMethodImpl(MethodImplOptions.Synchronized)ÊôĞÔ±£»¤¾²Ì¬·½·¨µÄ´úÂë
+        /// ç”¨MethodImpl(MethodImplOptions.Synchronized)å±æ€§ä¿æŠ¤é™æ€æ–¹æ³•çš„ä»£ç 
         /// </summary>
         public static class Method2MethodImpl
         {
-            private static int _numeric = 1; //ĞèÒª°²È«·ÃÎÊµÄ¶ÔÏó
+            private static int _numeric = 1; //éœ€è¦å®‰å…¨è®¿é—®çš„å¯¹è±¡
 
             [MethodImpl(MethodImplOptions.Synchronized)]
             public static void IncrementNumeric()
@@ -69,11 +69,11 @@ namespace thread_test.s2_synchronized
 
 
         /// <summary>
-        /// Monitor.TryEnter·½·¨Ö§³Ö³¬Ê±ÖµÉè¶¨£¬ÔÚÎ´³¬Ê±ÆÚ¼äµÃµ½Ëø·µ»Øtrue£¬·ñÔò·µ»Øfalse¡£
-        /// TryEnterÓĞµ¥¸ö²ÎÊı£¨²»Ö¸¶¨³¬Ê±£©µÄÖØÔØ°æ±¾£¬ÄÇ¸ö°æ±¾²»»á×èÈû½ø³Ì£¬Á¢¼´·µ»Ø½á¹û¡£
-        /// Õâ¸öÑİÊ¾Àà£¬¹«¿ªÁËÍ¬²½¶ÔÏóSyncRoot£¬¹©Íâ²¿´úÂëËø¶¨£¬
-        /// Í¨¹ıËü£¬¿ÉÒÔ½â¾öÔÚ¶à¸öÏß³ÌÍ¬Ê±µ÷ÓÃModifyNumeric½Ó×ÅReadNumericÊ±£¬
-        /// ¿ÉÄÜ¶ÁÈ¡µ½ÆäËûÏß³ÌĞŞ¸ÄµÄÖµµÄÎÊÌâ¡£²Î¿´µ÷ÓÃ´ËÀàµÄÑİÊ¾´úÂë¡£
+        /// Monitor.TryEnteræ–¹æ³•æ”¯æŒè¶…æ—¶å€¼è®¾å®šï¼Œåœ¨æœªè¶…æ—¶æœŸé—´å¾—åˆ°é”è¿”å›trueï¼Œå¦åˆ™è¿”å›falseã€‚
+        /// TryEnteræœ‰å•ä¸ªå‚æ•°ï¼ˆä¸æŒ‡å®šè¶…æ—¶ï¼‰çš„é‡è½½ç‰ˆæœ¬ï¼Œé‚£ä¸ªç‰ˆæœ¬ä¸ä¼šé˜»å¡è¿›ç¨‹ï¼Œç«‹å³è¿”å›ç»“æœã€‚
+        /// è¿™ä¸ªæ¼”ç¤ºç±»ï¼Œå…¬å¼€äº†åŒæ­¥å¯¹è±¡SyncRootï¼Œä¾›å¤–éƒ¨ä»£ç é”å®šï¼Œ
+        /// é€šè¿‡å®ƒï¼Œå¯ä»¥è§£å†³åœ¨å¤šä¸ªçº¿ç¨‹åŒæ—¶è°ƒç”¨ModifyNumericæ¥ç€ReadNumericæ—¶ï¼Œ
+        /// å¯èƒ½è¯»å–åˆ°å…¶ä»–çº¿ç¨‹ä¿®æ”¹çš„å€¼çš„é—®é¢˜ã€‚å‚çœ‹è°ƒç”¨æ­¤ç±»çš„æ¼”ç¤ºä»£ç ã€‚
         /// </summary>
         public class Method3Monitor
         {
@@ -131,70 +131,70 @@ namespace thread_test.s2_synchronized
 
 
         /// <summary>
-        /// lock·½·¨µÄ²âÊÔ´úÂë
+        /// lockæ–¹æ³•çš„æµ‹è¯•ä»£ç 
         /// </summary>
         private static void TestLock(object state)
         {
-            Method1Lock.IncrementNumeric(); //ÑİÊ¾¼Ó1ºÍ¶ÁÖµ²Ù×÷
-            int numeric = Method1Lock.ReadNumeric(); //ÔÚ¶àÏß³Ìµ÷ÓÃÊ±£¬´Ë´¦¶Áµ½µÄÖµºÜ¿ÉÄÜÊÇÆäËûÏß³Ì²Ù×÷ºóµÄ½á¹û£¬ÎªÁË½â¾öÕâ¸öÎÊÌâ£¬¼ûÏÂÃæµÄTestMonitor·½·¨´úÂë
-            Console.Write("{0,4}", numeric); //ÏÔÊ¾½á¹û
+            Method1Lock.IncrementNumeric(); //æ¼”ç¤ºåŠ 1å’Œè¯»å€¼æ“ä½œ
+            int numeric = Method1Lock.ReadNumeric(); //åœ¨å¤šçº¿ç¨‹è°ƒç”¨æ—¶ï¼Œæ­¤å¤„è¯»åˆ°çš„å€¼å¾ˆå¯èƒ½æ˜¯å…¶ä»–çº¿ç¨‹æ“ä½œåçš„ç»“æœï¼Œä¸ºäº†è§£å†³è¿™ä¸ªé—®é¢˜ï¼Œè§ä¸‹é¢çš„TestMonitoræ–¹æ³•ä»£ç 
+            Console.Write("{0,4}", numeric); //æ˜¾ç¤ºç»“æœ
         }
 
         /// <summary>
-        /// Monitor.TryEnter·½·¨µÄ²âÊÔ´úÂë
+        /// Monitor.TryEnteræ–¹æ³•çš„æµ‹è¯•ä»£ç 
         /// </summary>
         private static void TestMonitor(object state)
         {
-            var newValue = (int)state; //ÑİÊ¾ĞŞ¸ÄºÍ¶ÁÖµ²Ù×÷
+            var newValue = (int)state; //æ¼”ç¤ºä¿®æ”¹å’Œè¯»å€¼æ“ä½œ
             var num = 0;
-            if (Monitor.TryEnter(Method3Monitor.SyncRoot, 250)) //Í¨¹ıTest2Monitor¹«¿ªµÄÍ¬²½¶ÔÏóSyncRoot£¬Ê¹¶ÁĞ´ÖµÍ¬²½
+            if (Monitor.TryEnter(Method3Monitor.SyncRoot, 250)) //é€šè¿‡Test2Monitorå…¬å¼€çš„åŒæ­¥å¯¹è±¡SyncRootï¼Œä½¿è¯»å†™å€¼åŒæ­¥
             {
                 Method3Monitor.ModifyNumeric(newValue);
                 num = Method3Monitor.ReadNumeric();
                 Monitor.Exit(Method3Monitor.SyncRoot);
             }
-            Console.Write("{0,4}", num); //ÏÔÊ¾ÕıÈ·µÄ½á¹û
+            Console.Write("{0,4}", num); //æ˜¾ç¤ºæ­£ç¡®çš„ç»“æœ
         }
 
-        #region ²»ÖØÒª
+        #region ä¸é‡è¦
         /// <summary>
-        /// ²âÊÔ´úÂë
+        /// æµ‹è¯•ä»£ç 
         /// </summary>
         public static void TestSyncLock()
         {
-            int workerThreads; //Ïß³Ì³Ø¿ÉÓÃÓÚ¸¨ÖúÏß³ÌµÄÊıÄ¿
-            int completionPortThreads; //Ïß³Ì³Ø¿ÉÓÃÓÚÒì²½I/OÏß³ÌµÄÊıÄ¿
+            int workerThreads; //çº¿ç¨‹æ± å¯ç”¨äºè¾…åŠ©çº¿ç¨‹çš„æ•°ç›®
+            int completionPortThreads; //çº¿ç¨‹æ± å¯ç”¨äºå¼‚æ­¥I/Oçº¿ç¨‹çš„æ•°ç›®
             ThreadPool.GetAvailableThreads(out workerThreads, out completionPortThreads);
             int count = Math.Min(50, workerThreads);
-            //·½·¨1
+            //æ–¹æ³•1
             int initialValue = 20;
             int expectValue = initialValue + count;
             Method1Lock.ModifyNumeric(initialValue);
-            Console.WriteLine("·½·¨1: lock(syncObj)");
-            Console.WriteLine("Ïß³Ì³Ø²âÊÔ¶ÓÁĞÊı: {0}, ³õÖµ: {1}, ½«³õÖµ{1}½øĞĞ{0}´ÎµÄ¼Ó1²Ù×÷, ÆÚÍû½á¹û: {2}", count, initialValue, expectValue);
-            Console.Write("½á¹û:\t");
+            Console.WriteLine("æ–¹æ³•1: lock(syncObj)");
+            Console.WriteLine("çº¿ç¨‹æ± æµ‹è¯•é˜Ÿåˆ—æ•°: {0}, åˆå€¼: {1}, å°†åˆå€¼{1}è¿›è¡Œ{0}æ¬¡çš„åŠ 1æ“ä½œ, æœŸæœ›ç»“æœ: {2}", count, initialValue, expectValue);
+            Console.Write("ç»“æœ:\t");
             for (int i = 0; i < count; i++)
             {
                 ThreadPool.QueueUserWorkItem(TestLock);
             }
             Thread.Sleep(250);
-            Console.WriteLine("\n×îÖÕ½á¹û: " + Method1Lock.ReadNumeric());
+            Console.WriteLine("\næœ€ç»ˆç»“æœ: " + Method1Lock.ReadNumeric());
             
-            //·½·¨2
-            Console.WriteLine("·½·¨2: [MethodImpl(MethodImplOptions.Synchronized)]  £¨ÂÔ£¬ÏêÏ¸¼û´úÂë£©");
+            //æ–¹æ³•2
+            Console.WriteLine("æ–¹æ³•2: [MethodImpl(MethodImplOptions.Synchronized)]  ï¼ˆç•¥ï¼Œè¯¦ç»†è§ä»£ç ï¼‰");
             
-            //·½·¨3
+            //æ–¹æ³•3
             var maxValue = 1000;
-            Console.WriteLine("·½·¨3: Monitor.TryEnter(syncObj)");
-            Console.WriteLine("Ïß³Ì³Ø²âÊÔ¶ÓÁĞÊı: {0}, ĞŞ¸Ä_numeric×Ö¶Î{0}´Î, ĞŞ¸ÄÖµÎª{1}ÄÚµÄ·Ç¸ºµÄËæ»úÕûÊı", count, maxValue);
-            Console.Write("½á¹û:\t");
+            Console.WriteLine("æ–¹æ³•3: Monitor.TryEnter(syncObj)");
+            Console.WriteLine("çº¿ç¨‹æ± æµ‹è¯•é˜Ÿåˆ—æ•°: {0}, ä¿®æ”¹_numericå­—æ®µ{0}æ¬¡, ä¿®æ”¹å€¼ä¸º{1}å†…çš„éè´Ÿçš„éšæœºæ•´æ•°", count, maxValue);
+            Console.Write("ç»“æœ:\t");
             var rand = new Random();
             for (int i = 0; i < count; i++)
             {
-                ThreadPool.QueueUserWorkItem(TestMonitor, rand.Next(maxValue)); //Ëæ»úÊı²»»áÈ¡ÉÏÏŞÖµ£¬¿ÉÒÔÈ¡ÏÂÏŞÖµ(´ËÖØÔØÏÂÏŞÖµÎª0)
+                ThreadPool.QueueUserWorkItem(TestMonitor, rand.Next(maxValue)); //éšæœºæ•°ä¸ä¼šå–ä¸Šé™å€¼ï¼Œå¯ä»¥å–ä¸‹é™å€¼(æ­¤é‡è½½ä¸‹é™å€¼ä¸º0)
             }
             Thread.Sleep(250);
-            Console.WriteLine("\n×îÖÕ½á¹û: " + Method3Monitor.ReadNumeric());
+            Console.WriteLine("\næœ€ç»ˆç»“æœ: " + Method3Monitor.ReadNumeric());
         }
         #endregion
     }

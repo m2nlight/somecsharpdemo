@@ -10,18 +10,18 @@ namespace Utility
 {
     public static class ExtandMethod
     {
-        #region ×Ö·û´®Óë×Ö½ÚÊı×é×ª»»
+        #region å­—ç¬¦ä¸²ä¸å­—èŠ‚æ•°ç»„è½¬æ¢
 
         /// <summary>
-        /// 16½øÖÆ¸ñÊ½×Ö·û´®×ª»»Îª×Ö½ÚÊı×é
+        /// 16è¿›åˆ¶æ ¼å¼å­—ç¬¦ä¸²è½¬æ¢ä¸ºå­—èŠ‚æ•°ç»„
         /// </summary>
-        /// <returns>·µ»Ø×Ö½ÚÊı×é</returns>
-        /// <exception cref="ArgumentNullException">¿ÕÒıÓÃÎŞ·¨×ª»»</exception>
-        /// <exception cref="ArgumentException">ÎŞ·¨×ª»»</exception>
+        /// <returns>è¿”å›å­—èŠ‚æ•°ç»„</returns>
+        /// <exception cref="ArgumentNullException">ç©ºå¼•ç”¨æ— æ³•è½¬æ¢</exception>
+        /// <exception cref="ArgumentException">æ— æ³•è½¬æ¢</exception>
         /// <remarks>
-        /// 16½øÖÆ¸ñÊ½£ºÒªÇóÃ¿¸ö×Ö½ÚÓÃ2Î»Ê®Áù½øÖÆÊı±íÊ¾£¬²»×ã2Î»Çë²¹0£¬ÔÚ×ª»»¹ı³Ì»áÈ¥³ı¿Õ¸ñºÍ¡°-¡±·ûºÅ£¬
-        /// ²»Çø·Ö´óĞ¡Ğ´¡£ 
-        /// ÏÂÃæ¼¸¸öÊÇÏàÍ¬µÄ£º
+        /// 16è¿›åˆ¶æ ¼å¼ï¼šè¦æ±‚æ¯ä¸ªå­—èŠ‚ç”¨2ä½åå…­è¿›åˆ¶æ•°è¡¨ç¤ºï¼Œä¸è¶³2ä½è¯·è¡¥0ï¼Œåœ¨è½¬æ¢è¿‡ç¨‹ä¼šå»é™¤ç©ºæ ¼å’Œâ€œ-â€ç¬¦å·ï¼Œ
+        /// ä¸åŒºåˆ†å¤§å°å†™ã€‚ 
+        /// ä¸‹é¢å‡ ä¸ªæ˜¯ç›¸åŒçš„ï¼š
         /// 89a701fe
         /// 89 a7 01 fe
         /// 89-a7-01-fe
@@ -49,11 +49,11 @@ namespace Utility
         }
 
         /// <summary>
-        /// ×Ö½ÚÊı×é×ª»»ÎªÏÔÊ¾×Ö·û´®
+        /// å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºæ˜¾ç¤ºå­—ç¬¦ä¸²
         /// </summary>
-        /// <exception cref="ArgumentNullException">¿ÕÒıÓÃÎŞ·¨×ª»»</exception>
+        /// <exception cref="ArgumentNullException">ç©ºå¼•ç”¨æ— æ³•è½¬æ¢</exception>
         /// <remarks>
-        /// ÏÔÊ¾½á¹ûÊÇÎŞÁ¬½ÓÏß¡°-¡±µÄ16½øÖÆÊıĞÎÊ½
+        /// æ˜¾ç¤ºç»“æœæ˜¯æ— è¿æ¥çº¿â€œ-â€çš„16è¿›åˆ¶æ•°å½¢å¼
         /// </remarks>
         private static string ConvertToString(this IEnumerable<byte> buffer)
         {
@@ -62,11 +62,11 @@ namespace Utility
         }
 
         /// <summary>
-        /// ×Ö½ÚÊı×é×ª»»ÎªÏÔÊ¾×Ö·û´®
+        /// å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºæ˜¾ç¤ºå­—ç¬¦ä¸²
         /// </summary>
-        /// <exception cref="ArgumentNullException">¿ÕÒıÓÃÎŞ·¨×ª»»</exception>
+        /// <exception cref="ArgumentNullException">ç©ºå¼•ç”¨æ— æ³•è½¬æ¢</exception>
         /// <remarks>
-        /// ÏÔÊ¾½á¹ûÊÇÎŞÁ¬½ÓÏß¡°-¡±µÄ16½øÖÆÊıĞ¡Ğ´ĞÎÊ½£¬Èç£º
+        /// æ˜¾ç¤ºç»“æœæ˜¯æ— è¿æ¥çº¿â€œ-â€çš„16è¿›åˆ¶æ•°å°å†™å½¢å¼ï¼Œå¦‚ï¼š
         /// 89a701fe
         /// </remarks>
         public static string ConvertToLowerString(this IEnumerable<byte> buffer)
@@ -75,11 +75,11 @@ namespace Utility
         }
 
         /// <summary>
-        /// ×Ö½ÚÊı×é×ª»»ÎªÏÔÊ¾×Ö·û´®
+        /// å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºæ˜¾ç¤ºå­—ç¬¦ä¸²
         /// </summary>
-        /// <exception cref="ArgumentNullException">¿ÕÒıÓÃÎŞ·¨×ª»»</exception>
+        /// <exception cref="ArgumentNullException">ç©ºå¼•ç”¨æ— æ³•è½¬æ¢</exception>
         /// <remarks>
-        /// ÏÔÊ¾½á¹ûÊÇÎŞÁ¬½ÓÏß¡°-¡±µÄ16½øÖÆÊı´óĞ´ĞÎÊ½£¬Èç£º
+        /// æ˜¾ç¤ºç»“æœæ˜¯æ— è¿æ¥çº¿â€œ-â€çš„16è¿›åˆ¶æ•°å¤§å†™å½¢å¼ï¼Œå¦‚ï¼š
         /// 89A701FE
         /// </remarks>
         public static string ConvertToUpperString(this IEnumerable<byte> buffer)
@@ -90,10 +90,10 @@ namespace Utility
 
         #endregion
 
-        #region ×Ö·û´®ºÏ²¢·Ö¸ô¼°¹ıÂË
+        #region å­—ç¬¦ä¸²åˆå¹¶åˆ†éš”åŠè¿‡æ»¤
 
         /// <summary>
-        /// ¹ıÂËµôÄ³Ğ©×Ö·û
+        /// è¿‡æ»¤æ‰æŸäº›å­—ç¬¦
         /// </summary>
         /// <param name="string"></param>
         /// <param name="characters"></param>
@@ -122,7 +122,7 @@ namespace Utility
         }
 
         /// <summary>
-        /// ·Ö¸ô×Ö·û´®(Ö¸¶¨Ò»¸ö·Ö¸ô·ûºÅ)
+        /// åˆ†éš”å­—ç¬¦ä¸²(æŒ‡å®šä¸€ä¸ªåˆ†éš”ç¬¦å·)
         /// </summary>
         /// <param name="text"></param>
         /// <param name="sperator"></param>
@@ -138,7 +138,7 @@ namespace Utility
         }
 
         /// <summary>
-        /// ·Ö¸ô×Ö·û´®
+        /// åˆ†éš”å­—ç¬¦ä¸²
         /// </summary>
         /// <param name="text"></param>
         /// <param name="sperators"></param>
@@ -159,7 +159,7 @@ namespace Utility
         }
 
         /// <summary>
-        /// ºÏ²¢Îª×Ö·û´®
+        /// åˆå¹¶ä¸ºå­—ç¬¦ä¸²
         /// </summary>
         /// <param name="stringArray"></param>
         /// <param name="sperator"></param>
@@ -170,7 +170,7 @@ namespace Utility
         }
 
         /// <summary>
-        /// ºÏ²¢Îª×Ö·û´®
+        /// åˆå¹¶ä¸ºå­—ç¬¦ä¸²
         /// </summary>
         /// <param name="stringArray"></param>
         /// <param name="sperator"></param>
@@ -193,7 +193,7 @@ namespace Utility
         }
 
         /// <summary>
-        /// Êä³öÎª¶àĞĞ×Ö·û´®
+        /// è¾“å‡ºä¸ºå¤šè¡Œå­—ç¬¦ä¸²
         /// </summary>
         /// <param name="stringArray"></param>
         /// <returns></returns>
@@ -215,10 +215,10 @@ namespace Utility
 
         #endregion
 
-        #region ÈÕÆÚÊ±¼ä¶ÔÏóµÄÅĞ¶Ï
+        #region æ—¥æœŸæ—¶é—´å¯¹è±¡çš„åˆ¤æ–­
 
         /// <summary>
-        /// ÅĞ¶ÏÁ½¸öDateTime¶ÔÏóÊÇ·ñÏàµÈ£¬ÅĞ¶Ïµ½Ãë
+        /// åˆ¤æ–­ä¸¤ä¸ªDateTimeå¯¹è±¡æ˜¯å¦ç›¸ç­‰ï¼Œåˆ¤æ–­åˆ°ç§’
         /// </summary>
         /// <param name="dt1"></param>
         /// <param name="dt2"></param>
@@ -236,29 +236,29 @@ namespace Utility
 
         #endregion
 
-        #region Êı×é±È½Ï
+        #region æ•°ç»„æ¯”è¾ƒ
 
         /// <summary>
-        /// ±È½ÏÁ½¸öÊı×éÊÇ·ñÏàµÈ
+        /// æ¯”è¾ƒä¸¤ä¸ªæ•°ç»„æ˜¯å¦ç›¸ç­‰
         /// </summary>
-        /// <param name="array1">Ô´Êı×é</param>
-        /// <param name="array2">±È½ÏÊı×é</param>
+        /// <param name="array1">æºæ•°ç»„</param>
+        /// <param name="array2">æ¯”è¾ƒæ•°ç»„</param>
         /// <returns></returns>
         public static bool IsEquals(this Array array1, Array array2)
         {
-            //±È½ÏÀàĞÍÊÇ·ñÒ»Ñù
+            //æ¯”è¾ƒç±»å‹æ˜¯å¦ä¸€æ ·
             if (!ReferenceEquals(array1.GetType(), array2.GetType()))
             {
                 return false;
             }
 
-            //±È½Ï³¤¶ÈÊÇ·ñÒ»Ñù
+            //æ¯”è¾ƒé•¿åº¦æ˜¯å¦ä¸€æ ·
             if (array1.GetLength(0) != array2.GetLength(0))
             {
                 return false;
             }
 
-            //±È½Ï³ÉÔ±ÊÇ·ñ¶ÔÓ¦ÏàµÈ
+            //æ¯”è¾ƒæˆå‘˜æ˜¯å¦å¯¹åº”ç›¸ç­‰
             for (int i = 0; i < array1.GetLength(0); i++)
             {
                 var v1 = (ValueType)array1.GetValue(i);
@@ -274,10 +274,10 @@ namespace Utility
 
         #endregion
 
-        #region ±È½ÏIPµØÖ·
+        #region æ¯”è¾ƒIPåœ°å€
 
         /// <summary>
-        /// ±È½ÏIPµØÖ·
+        /// æ¯”è¾ƒIPåœ°å€
         /// </summary>
         /// <param name="thisIp"></param>
         /// <param name="otherIp"></param>
@@ -293,7 +293,7 @@ namespace Utility
         }
 
         /// <summary>
-        /// ±È½ÏIPµØÖ·
+        /// æ¯”è¾ƒIPåœ°å€
         /// </summary>
         /// <param name="thisIp"></param>
         /// <param name="otherIp"></param>

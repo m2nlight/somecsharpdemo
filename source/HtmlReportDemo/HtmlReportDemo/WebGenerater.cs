@@ -27,7 +27,7 @@ namespace HtmlReportDemo
             }
 
             var title = "Demo";
-            var body = @"<a href=""http://blog.csdn.com/oyi319"" title=""·ÃÎÊ²©¿Í"">BLOG!</a>";
+            var body = @"<a href=""http://blog.csdn.com/oyi319"" title=""è®¿é—®åšå®¢"">BLOG!</a>";
 
             css = string.Format("<style>{0}</style>", css);
             js = string.Format("<script>{0}</script>", js);

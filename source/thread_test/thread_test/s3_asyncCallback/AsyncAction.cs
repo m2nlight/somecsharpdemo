@@ -4,33 +4,33 @@ using System.Threading;
 
 namespace thread_test.s3_asyncCallback
 {
-    //ÉùÃ÷Ò»¸öÓëÒì²½µ÷ÓÃ·½·¨²ÎÊıºÍ·µ»ØÖµÇ©ÃûÏàÍ¬µÄÎ¯ÍĞ£¬ËüÖ§³ÖoutºÍref²ÎÊı
+    //å£°æ˜ä¸€ä¸ªä¸å¼‚æ­¥è°ƒç”¨æ–¹æ³•å‚æ•°å’Œè¿”å›å€¼ç­¾åç›¸åŒçš„å§”æ‰˜ï¼Œå®ƒæ”¯æŒoutå’Œrefå‚æ•°
     public delegate double AsyncInvoke(double a, double b, out double c);
 
     public class TestAsyncInvoke
     {
         /// <summary>
-        /// ÒÑ¾­Ö±½ÇÈı½ÇĞÎµÄÁ½Ö±½Ç±ßaºÍbµÄ³¤¶È£¬Çó¼Ğ½ÇacµÄ¹Â¶ÈÖµºÍĞ±±ßcµÄ³¤¶È
+        /// å·²ç»ç›´è§’ä¸‰è§’å½¢çš„ä¸¤ç›´è§’è¾¹aå’Œbçš„é•¿åº¦ï¼Œæ±‚å¤¹è§’acçš„å­¤åº¦å€¼å’Œæ–œè¾¹cçš„é•¿åº¦
         /// </summary>
-        /// <param name="a">¶Ô±ß³¤¶È</param>
-        /// <param name="b">ÁÙ±ß³¤¶È</param>
-        /// <param name="c">Ğ±±ß³¤¶È</param>
-        /// <returns>¼Ğ½ÇacµÄ¹Â¶ÈÖµ</returns>
+        /// <param name="a">å¯¹è¾¹é•¿åº¦</param>
+        /// <param name="b">ä¸´è¾¹é•¿åº¦</param>
+        /// <param name="c">æ–œè¾¹é•¿åº¦</param>
+        /// <returns>å¤¹è§’acçš„å­¤åº¦å€¼</returns>
         public static double ComputeRtAngle(double a, double b, out double c)
         {
-            Console.WriteLine("{0} ¼ÆËãÏß³Ì£ºTestAsyncInvoke.ComputeRtAngle ¼ÆËãÖ±½ÇÈı½ÇĞÎ", Thread.CurrentThread.ManagedThreadId);
-            c = Math.Sqrt(a * a + b * b); //µÃµ½Ğ±±ß³¤¶È
-            var angle = Math.Atan(a / b); //µÃµ½a,c±ß¼Ğ½ÇµÄ»¡¶ÈÖµ
+            Console.WriteLine("{0} è®¡ç®—çº¿ç¨‹ï¼šTestAsyncInvoke.ComputeRtAngle è®¡ç®—ç›´è§’ä¸‰è§’å½¢", Thread.CurrentThread.ManagedThreadId);
+            c = Math.Sqrt(a * a + b * b); //å¾—åˆ°æ–œè¾¹é•¿åº¦
+            var angle = Math.Atan(a / b); //å¾—åˆ°a,cè¾¹å¤¹è§’çš„å¼§åº¦å€¼
             return angle;
         }
 
         /// <summary>
-        /// ²âÊÔ´úÂë
+        /// æµ‹è¯•ä»£ç 
         /// </summary>
         public static void TestAsyncDelegate()
         {
             var aa = new AsyncAction();
-            aa.CallbackAsyncDelegate(); //½øĞĞÑİÊ¾
+            aa.CallbackAsyncDelegate(); //è¿›è¡Œæ¼”ç¤º
         }
     }
 
@@ -39,30 +39,30 @@ namespace thread_test.s3_asyncCallback
     {
         public void CallbackAsyncDelegate()
         {
-            AsyncCallback callback = DelegateCallback; //»Øµ÷º¯ÊıµÄÎ¯ÍĞ
-            AsyncInvoke computeRtAngle = TestAsyncInvoke.ComputeRtAngle; //Òì²½µ÷ÓÃµÄÎ¯ÍĞ
-            Console.WriteLine("{0} µ÷ÓÃÏß³Ì£ºÖ´ĞĞBeginInvokeÇ°µÄ´úÂë", Thread.CurrentThread.ManagedThreadId);
+            AsyncCallback callback = DelegateCallback; //å›è°ƒå‡½æ•°çš„å§”æ‰˜
+            AsyncInvoke computeRtAngle = TestAsyncInvoke.ComputeRtAngle; //å¼‚æ­¥è°ƒç”¨çš„å§”æ‰˜
+            Console.WriteLine("{0} è°ƒç”¨çº¿ç¨‹ï¼šæ‰§è¡ŒBeginInvokeå‰çš„ä»£ç ", Thread.CurrentThread.ManagedThreadId);
             double a = 5;
             double b = 9;
-            double c; //×¢Òâ²ÎÊıcÊ¹ÓÃout´«µİ£¬Í¬ÑùÖ§³Öref²ÎÊı´«µİ
-            IAsyncResult asyncResult = computeRtAngle.BeginInvoke(a, b, out c, callback, computeRtAngle); //Òì²½Æô¶¯Î¯ÍĞ
-            Console.WriteLine("{0} µ÷ÓÃÏß³Ì£ºÖ´ĞĞBeginInvokeºóµÄ´úÂë, a={1}, b={2}, c={3} ¡ª¡ª²ÎÊıcÊ¹ÓÃout´«µİ",
+            double c; //æ³¨æ„å‚æ•°cä½¿ç”¨outä¼ é€’ï¼ŒåŒæ ·æ”¯æŒrefå‚æ•°ä¼ é€’
+            IAsyncResult asyncResult = computeRtAngle.BeginInvoke(a, b, out c, callback, computeRtAngle); //å¼‚æ­¥å¯åŠ¨å§”æ‰˜
+            Console.WriteLine("{0} è°ƒç”¨çº¿ç¨‹ï¼šæ‰§è¡ŒBeginInvokeåçš„ä»£ç , a={1}, b={2}, c={3} â€•â€•å‚æ•°cä½¿ç”¨outä¼ é€’",
                               Thread.CurrentThread.ManagedThreadId, a, b, c);
-            //Òì²½µ÷ÓÃ£¬ÓÃEndInvoke²ÅÄÜµÃµ½Ğ±±ßc¼°×îÖÕµÄ½á¹û£¬´ËÊ¾ÀıµÄ½á¹ûÊÇÔÚ»Øµ÷º¯ÊıÀï»ñµÃµÄ
+            //å¼‚æ­¥è°ƒç”¨ï¼Œç”¨EndInvokeæ‰èƒ½å¾—åˆ°æ–œè¾¹cåŠæœ€ç»ˆçš„ç»“æœï¼Œæ­¤ç¤ºä¾‹çš„ç»“æœæ˜¯åœ¨å›è°ƒå‡½æ•°é‡Œè·å¾—çš„
         }
 
         /// <summary>
-        /// Òì²½Î¯ÍĞÍê³ÉµÄ»Øµ÷º¯Êı
+        /// å¼‚æ­¥å§”æ‰˜å®Œæˆçš„å›è°ƒå‡½æ•°
         /// </summary>
-        /// <param name="ar">Òì²½½á¹û</param>
+        /// <param name="ar">å¼‚æ­¥ç»“æœ</param>
         public static void DelegateCallback(IAsyncResult ar)
         {
-            var asyncResult = (AsyncResult)ar; //½«½á¹û×ª»»ÎªAsyncResult¶ÔÏó
-            var asyncInvoke = (AsyncInvoke)asyncResult.AsyncDelegate; //µÃµ½Òì²½µ÷ÓÃµÄÎ¯ÍĞ
-            double c; //¼ÆËãµÄout²ÎÊı·µ»ØÖµ£¨Ğ±±ß³¤¶È£©
-            double angle = asyncInvoke.EndInvoke(out c, asyncResult); //µÃµ½Òì²½µ÷ÓÃ·½·¨µÄ×îÖÕ½á¹û
-            Console.WriteLine("{0} »Øµ÷º¯Êı£¬½á¹û£ºangle={1}={2}¡ã,c={3}", Thread.CurrentThread.ManagedThreadId,
-                              angle, angle * (180 / Math.PI), c); //×¢Òâ£º»Øµ÷º¯Êı¹¤×÷ÔÚÒì²½Î¯ÍĞÏß³ÌÀï¡£
+            var asyncResult = (AsyncResult)ar; //å°†ç»“æœè½¬æ¢ä¸ºAsyncResultå¯¹è±¡
+            var asyncInvoke = (AsyncInvoke)asyncResult.AsyncDelegate; //å¾—åˆ°å¼‚æ­¥è°ƒç”¨çš„å§”æ‰˜
+            double c; //è®¡ç®—çš„outå‚æ•°è¿”å›å€¼ï¼ˆæ–œè¾¹é•¿åº¦ï¼‰
+            double angle = asyncInvoke.EndInvoke(out c, asyncResult); //å¾—åˆ°å¼‚æ­¥è°ƒç”¨æ–¹æ³•çš„æœ€ç»ˆç»“æœ
+            Console.WriteLine("{0} å›è°ƒå‡½æ•°ï¼Œç»“æœï¼šangle={1}={2}Â°,c={3}", Thread.CurrentThread.ManagedThreadId,
+                              angle, angle * (180 / Math.PI), c); //æ³¨æ„ï¼šå›è°ƒå‡½æ•°å·¥ä½œåœ¨å¼‚æ­¥å§”æ‰˜çº¿ç¨‹é‡Œã€‚
         }
     }
 }

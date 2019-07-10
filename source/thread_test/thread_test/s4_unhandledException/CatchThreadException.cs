@@ -6,38 +6,38 @@ namespace thread_test.s4_unhandledException
     public class CatchThreadException
     {
         /// <summary>
-        /// ²âÊÔ´úÂë
+        /// æµ‹è¯•ä»£ç 
         /// </summary>
         public static void TestThreadException()
         {
-            Console.WriteLine("{0} µ÷ÓÃÕßÏß³Ì ÍĞ¹ÜÏß³ÌID: {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("{0} è°ƒç”¨è€…çº¿ç¨‹ æ‰˜ç®¡çº¿ç¨‹ID: {0}", Thread.CurrentThread.ManagedThreadId);
 
-            //¼àÌıµ±Ç°Ó¦ÓÃ³ÌĞòÓòµÄÎ´´¦ÀíÒì³££¨Í¨³£Ğ´ÔÚ³ÌĞòÈë¿Úº¯ÊıMain¿ªÊ¼´¦£©
+            //ç›‘å¬å½“å‰åº”ç”¨ç¨‹åºåŸŸçš„æœªå¤„ç†å¼‚å¸¸ï¼ˆé€šå¸¸å†™åœ¨ç¨‹åºå…¥å£å‡½æ•°Mainå¼€å§‹å¤„ï¼‰
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainUnhandledException;
 
-            new Thread(Worker.DoWork).Start();  //ÔÚĞÂÏß³ÌÆô¶¯Worker.DoWork
+            new Thread(Worker.DoWork).Start();  //åœ¨æ–°çº¿ç¨‹å¯åŠ¨Worker.DoWork
             
             //new Thread(Worker.DoWorkNoCatch).Start();
             Thread.Sleep(100);
-            AppDomain.CurrentDomain.UnhandledException -= CurrentDomainUnhandledException; //È¡ÏûÊÂ¼ş¼àÌı
+            AppDomain.CurrentDomain.UnhandledException -= CurrentDomainUnhandledException; //å–æ¶ˆäº‹ä»¶ç›‘å¬
         }
 
-        //Î´´¦ÀíÒì³£
+        //æœªå¤„ç†å¼‚å¸¸
         static void CurrentDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             try
             {
                 var ex = e.ExceptionObject as Exception;
                 if (ex != null) 
-                    Console.WriteLine("{0} Î´´¦ÀíÒì³££º{1}", Thread.CurrentThread.ManagedThreadId, ex.Message);
+                    Console.WriteLine("{0} æœªå¤„ç†å¼‚å¸¸ï¼š{1}", Thread.CurrentThread.ManagedThreadId, ex.Message);
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ÔÚÎ´´¦ÀíÒì³£µÄ²¶»ñ´úÂëÖĞ·¢ÉúÁËÒì³££º" + ex.Message);
+                Console.WriteLine("åœ¨æœªå¤„ç†å¼‚å¸¸çš„æ•è·ä»£ç ä¸­å‘ç”Ÿäº†å¼‚å¸¸ï¼š" + ex.Message);
             }
             finally
             {
-                //ÆäËûµÄÒì³£¼ÇÂ¼ºÍÇåÀí´úÂë
+                //å…¶ä»–çš„å¼‚å¸¸è®°å½•å’Œæ¸…ç†ä»£ç 
             }
         }
     }
@@ -45,26 +45,26 @@ namespace thread_test.s4_unhandledException
 
     public class Worker
     {
-        //ÕıÈ·µÄ×ö·¨
+        //æ­£ç¡®çš„åšæ³•
         public static void DoWork()
         {
             try
             {
                 int z = 9999999;
-                checked { z *= 999999999; } //Ê¹Ö®Òı·¢Òç³öÒì³£
+                checked { z *= 999999999; } //ä½¿ä¹‹å¼•å‘æº¢å‡ºå¼‚å¸¸
                 Console.WriteLine(z);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("{0} WorkerÏß³Ì ²¶»ñµ½Òì³££º{1}", Thread.CurrentThread.ManagedThreadId, ex.Message);
+                Console.WriteLine("{0} Workerçº¿ç¨‹ æ•è·åˆ°å¼‚å¸¸ï¼š{1}", Thread.CurrentThread.ManagedThreadId, ex.Message);
             }
         }
 
-        //´íÎóµÄ×ö·¨
+        //é”™è¯¯çš„åšæ³•
         public static void DoWorkNoCatch()
         {
             int z = 9999999;
-            checked { z *= 999999999; } //Ê¹Ö®Òı·¢Òç³öÒì³£
+            checked { z *= 999999999; } //ä½¿ä¹‹å¼•å‘æº¢å‡ºå¼‚å¸¸
             Console.WriteLine(z);
         }
     }
